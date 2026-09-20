@@ -21,9 +21,9 @@ DATA_DIR = Path(__file__).parent.parent / "data" / "landing" / "legal"
 # Điền URL công khai tương ứng vào đây. Có thể đổi tên file cho phù hợp với
 # nội dung tài liệu, nhưng nên giữ phần mở rộng là .pdf, .doc hoặc .docx.
 DOCUMENT_SOURCES = {
-    "chinh_sach_01.pdf": "https://assets.ctfassets.net/unrdeg6se4ke/3eT3ue2RV5egjS34QqXdVt/ce0e178707e2021111f943ebbd9a0a8d/Writing-Band-descriptors-Task-1.pdf",
-    "chinh_sach_02.pdf": "https://assets.ctfassets.net/unrdeg6se4ke/4AqjlJ7Tp1wLiY1j6DzpOg/39561e03e8d48ddc7648b479b903c701/Writing-Band-descriptors-Task-2.pdf",
-    "chinh_sach_03.pdf": "",
+    "chinh_sach_01.pdf": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+    "chinh_sach_02.pdf": "https://ielts.org/cdn/Sample-tests/ielts-academic-writing-sample-tasks-2023.pdf",
+    "chinh_sach_03.pdf": "https://ielts.org/cdn/ielts-downloadable-assets/ielts-guidance-and-support/ielts-guides/ielts-writing-band-descriptors.pdf",
 }
 
 ALLOWED_EXTENSIONS = {".pdf", ".doc", ".docx"}
