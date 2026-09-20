@@ -13,8 +13,20 @@ Nếu website chặn crawler, hãy chọn nguồn công khai khác; không vư�
 
 from pathlib import Path
 
+import requests
+
 
 DATA_DIR = Path(__file__).parent.parent / "data" / "landing" / "legal"
+
+# Điền URL công khai tương ứng vào đây. Có thể đổi tên file cho phù hợp với
+# nội dung tài liệu, nhưng nên giữ phần mở rộng là .pdf, .doc hoặc .docx.
+DOCUMENT_SOURCES = {
+    "chinh_sach_01.pdf": "https://ielts.org/cdn/ielts-guides/ielts-writing-key-assessment-criteria.pdf",
+    "chinh_sach_02.pdf": "https://ielts.org/cdn/Sample-tests/ielts-academic-writing-sample-tasks-2023.pdf",
+    "chinh_sach_03.pdf": "https://ielts.org/cdn/ielts-downloadable-assets/ielts-guidance-and-support/ielts-guides/ielts-writing-band-descriptors.pdf",
+}
+
+ALLOWED_EXTENSIONS = {".pdf", ".doc", ".docx"}
 
 
 def setup_directory() -> None:
@@ -25,21 +37,47 @@ def setup_directory() -> None:
 
 def download_documents() -> None:
     """Tải ít nhất 3 PDF/DOCX từ nguồn công khai."""
-    # TODO: Có thể tải thủ công hoặc dùng requests.
-    #
-    # Ví dụ:
-    # import requests
-    #
-    # sources = {
-    #     "policy-a.pdf": "https://example.edu/policy-a.pdf",
-    # }
-    # for filename, url in sources.items():
-    #     response = requests.get(url, timeout=30)
-    #     response.raise_for_status()
-    #     (DATA_DIR / filename).write_bytes(response.content)
-    raise NotImplementedError("Implement download_documents")
+    setup_directory()
+
+    configured_sources = {
+        filename: url.strip()
+        for filename, url in DOCUMENT_SOURCES.items()
+        if url.strip()
+    }
+    if not configured_sources:
+        print("No URLs configured. Add URLs to DOCUMENT_SOURCES and run again.")
+        return
+
+    headers = {"User-Agent": "Mozilla/5.0 (legal-document-collector/1.0)"}
+    with requests.Session() as session:
+        session.headers.update(headers)
+
+        for filename, url in configured_sources.items():
+            destination = DATA_DIR / filename
+            temporary_file = destination.with_suffix(destination.suffix + ".part")
+
+            try:
+                if destination.suffix.lower() not in ALLOWED_EXTENSIONS:
+                    raise ValueError(
+                        f"Unsupported extension for {filename}; use PDF, DOC, or DOCX"
+                    )
+
+                with session.get(url, timeout=30, stream=True) as response:
+                    response.raise_for_status()
+                    with temporary_file.open("wb") as file:
+                        for chunk in response.iter_content(chunk_size=64 * 1024):
+                            if chunk:
+                                file.write(chunk)
+
+                if temporary_file.stat().st_size == 0:
+                    raise ValueError("Downloaded file is empty")
+
+                temporary_file.replace(destination)
+                print(f"Saved: {destination}")
+            except (OSError, ValueError, requests.RequestException) as error:
+                temporary_file.unlink(missing_ok=True)
+                print(f"Failed: {url} — {error}")
 
 
 if __name__ == "__main__":
-    setup_directory()
     download_documents()
