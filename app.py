@@ -24,7 +24,11 @@ st.caption("Thay tiêu đề và hướng dẫn sử dụng")
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-        # TODO: Hiển thị sources và retrieval score.
+        if "sources" in message and message["sources"]:
+            with st.expander(f"Nguồn tham khảo (từ {message.get('retrieval_source', 'unknown')})"):
+                for idx, src in enumerate(message["sources"], 1):
+                    st.markdown(f"**{idx}. {src['metadata'].get('title', 'N/A')}** (Score: {src.get('score', 0):.2f})")
+                    st.caption(src['content'][:200] + "...")
 
 query = st.chat_input("Nhập câu hỏi...")
 
@@ -35,11 +39,26 @@ if query:
         st.markdown(query)
 
     with st.chat_message("assistant"):
-        # TODO: Gọi generate_with_citation(query, top_k).
-        answer = "TODO: Itegration RAG Pipeline hêre"
-        sources = []
+        from src.task10_generation import generate_with_citation
+        
+        with st.spinner("Đang tìm kiếm và tạo câu trả lời..."):
+            result = generate_with_citation(query, top_k=top_k)
+            
+        answer = result["answer"]
+        sources = result["sources"]
+        retrieval_source = result["retrieval_source"]
+        
         st.markdown(answer)
+        
+        if sources:
+            with st.expander(f"Nguồn tham khảo (từ {retrieval_source})"):
+                for idx, src in enumerate(sources, 1):
+                    st.markdown(f"**{idx}. {src['metadata'].get('title', 'N/A')}** (Score: {src.get('score', 0):.2f})")
+                    st.caption(src['content'][:200] + "...")
 
-        # TODO: Hiển thị sources và citation.
-
-    # TODO: Lưu answer và sources vào session state.
+    st.session_state.messages.append({
+        "role": "assistant", 
+        "content": answer,
+        "sources": sources,
+        "retrieval_source": retrieval_source
+    })
