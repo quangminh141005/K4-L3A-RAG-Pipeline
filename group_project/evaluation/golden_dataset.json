@@ -1,0 +1,122 @@
+[
+  {
+    "question": "What is IELTS Writing Task 1 about?",
+    "answer": "IELTS Writing Task 1 asks test takers to describe visual information like a graph, table, chart, or diagram in at least 150 words within 20 minutes.",
+    "expected_answer": "Describe visual information in 150 words in 20 minutes.",
+    "expected_context": [
+      "In Task 1, test takers are asked to describe some visual information (graph/table/chart/diagram). They need to write 150 words in about 20 minutes."
+    ]
+  },
+  {
+    "question": "What is IELTS Writing Task 2 about?",
+    "answer": "Task 2 requires test takers to respond to an argument or problem in at least 250 words within 40 minutes.",
+    "expected_answer": "Respond to a point of view or argument in 250 words in 40 minutes.",
+    "expected_context": [
+      "In Task 2, they respond to a point of view or argument or problem. They need to write 250 words in about 40 minutes."
+    ]
+  },
+  {
+    "question": "How long should you spend on Task 1?",
+    "answer": "You should spend about 20 minutes on Task 1.",
+    "expected_answer": "20 minutes.",
+    "expected_context": [
+      "They need to write 150 words in about 20 minutes."
+    ]
+  },
+  {
+    "question": "How long should you spend on Task 2?",
+    "answer": "You should spend about 40 minutes on Task 2.",
+    "expected_answer": "40 minutes.",
+    "expected_context": [
+      "They need to write 250 words in about 40 minutes."
+    ]
+  },
+  {
+    "question": "What is the minimum word count for Task 1?",
+    "answer": "The minimum word count for Task 1 is 150 words.",
+    "expected_answer": "150 words.",
+    "expected_context": [
+      "They need to write 150 words in about 20 minutes."
+    ]
+  },
+  {
+    "question": "What is the minimum word count for Task 2?",
+    "answer": "The minimum word count for Task 2 is 250 words.",
+    "expected_answer": "250 words.",
+    "expected_context": [
+      "They need to write 250 words in about 40 minutes."
+    ]
+  },
+  {
+    "question": "Can I use pen or pencil in the test?",
+    "answer": "Yes, you can use pen or pencil.",
+    "expected_answer": "Pen or pencil can be used.",
+    "expected_context": [
+      "Answers must be given on the answer sheet and must be written in full. Notes are not acceptable as answers. Test takers may write on the question paper but this cannot be taken from the examination room and will not be seen by the examiner."
+    ]
+  },
+  {
+    "question": "What happens if I write notes instead of full answers?",
+    "answer": "Notes are not acceptable as answers. Answers must be written in full.",
+    "expected_answer": "They are not acceptable.",
+    "expected_context": [
+      "Answers must be given on the answer sheet and must be written in full. Notes are not acceptable as answers."
+    ]
+  },
+  {
+    "question": "How is the writing test assessed?",
+    "answer": "The test is assessed based on Task Achievement/Response, Coherence and Cohesion, Lexical Resource, and Grammatical Range and Accuracy.",
+    "expected_answer": "Based on 4 criteria.",
+    "expected_context": [
+      "Examiners use detailed performance descriptors which describe written performance at the 9 IELTS bands. These are based on the criteria of Task Achievement/Response, Coherence and Cohesion, Lexical Resource and Grammatical Range and Accuracy."
+    ]
+  },
+  {
+    "question": "How many band scores are there in IELTS?",
+    "answer": "There are 9 IELTS bands.",
+    "expected_answer": "9 bands.",
+    "expected_context": [
+      "Examiners use detailed performance descriptors which describe written performance at the 9 IELTS bands."
+    ]
+  },
+  {
+    "question": "What kind of visual information is in Task 1?",
+    "answer": "Visual information can be a graph, table, chart, or diagram.",
+    "expected_answer": "Graph, table, chart, or diagram.",
+    "expected_context": [
+      "In Task 1, test takers are asked to describe some visual information (graph/table/chart/diagram)."
+    ]
+  },
+  {
+    "question": "Where must answers be written?",
+    "answer": "Answers must be given on the answer sheet.",
+    "expected_answer": "On the answer sheet.",
+    "expected_context": [
+      "Answers must be given on the answer sheet and must be written in full."
+    ]
+  },
+  {
+    "question": "Can I take the question paper out of the examination room?",
+    "answer": "No, it cannot be taken from the examination room.",
+    "expected_answer": "No.",
+    "expected_context": [
+      "Test takers may write on the question paper but this cannot be taken from the examination room and will not be seen by the examiner."
+    ]
+  },
+  {
+    "question": "Will the examiner read my notes on the question paper?",
+    "answer": "No, anything written on the question paper will not be seen by the examiner.",
+    "expected_answer": "No.",
+    "expected_context": [
+      "Test takers may write on the question paper but this cannot be taken from the examination room and will not be seen by the examiner."
+    ]
+  },
+  {
+    "question": "What is the penalty for being under length?",
+    "answer": "There is a penalty for being under length.",
+    "expected_answer": "You will be penalized.",
+    "expected_context": [
+      "There is a penalty for being under length."
+    ]
+  }
+]
