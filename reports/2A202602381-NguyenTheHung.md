@@ -51,3 +51,6 @@
 ## Xác nhận đóng góp
 
 Tôi xác nhận nội dung trên phản ánh đúng phần việc của mình và có thể giải thích hoặc chạy lại trong buổi demo.
+
+- Ngày: 21/02/2025
+- Tên thành viên: Nguyễn Thế Hưng
