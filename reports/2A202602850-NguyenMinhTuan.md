@@ -4,7 +4,7 @@
 
 - Họ và tên: Nguyễn Minh Tuấn
 - Mã học viên: 2A202602850
-- Nhóm: Nhóm 1
+- Nhóm: Nhóm AInoob
 - Repository/branch: `main`
 
 ## Phần việc đã thực hiện
